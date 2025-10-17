@@ -20,9 +20,9 @@ app.use(cookieParser());
 const sessionSecret = process.env.EXPRESS_SESSION_SECRET;
 
 app.use(expressSession({
-        resave: false,
-        saveUninitialized: false,
-        secret: sessionSecret,
+  resave: false,
+  saveUninitialized: false,
+  secret: sessionSecret || 'dev-secret',
 }));
 app.use(flash());
 app.use(express.static(path.join(__dirname, "public")));
